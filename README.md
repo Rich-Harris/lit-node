@@ -7,27 +7,13 @@ Self-documenting Node scripts through literate programming. Based on [lit](https
 
 Create a file, `test.md`:
 
-~~~md
+~~~
 # this is a markdown file!
 
 It can have *all the usual markdown stuff*, but only the code blocks run:
 
 ```js
 console.log('it works!')
-```
-
-You can require other markdown files (extension optional):
-
-```js
-const thing = require('./thing.md');
-console.log(thing);
-```
-
-You can even use top-level await:
-
-```js
-const request = require('request-promise');
-console.log(await request('https://example.com'));
 ```
 ~~~
 
@@ -36,12 +22,27 @@ npm i -g lit-node
 lit-node test.md
 ```
 
+## More examples
 
-## Features
+~~~
+You can require other markdown files (extension optional):
 
-* Compiles modules on the fly, so you can `require` other markdown files
-* Ignores non-JS code blocks
-* Supports top-level `await`, because it's really useful in the context of a script
+```js
+const thing = require('./thing.md');
+console.log(thing);
+```
+~~~
+
+~~~
+You can even use top-level await, because that's really useful in the context of a script:
+
+```js
+const request = require('request-promise');
+console.log(await request('https://example.com'));
+```
+~~~
+
+Non-JS code blocks (e.g. Bash instructions) will be ignored.
 
 
 ## License
