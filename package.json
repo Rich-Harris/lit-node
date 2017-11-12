@@ -1,15 +1,15 @@
 {
-	"name": "lit-node",
-	"description": "Self-documenting Node scripts through literate programming",
-	"version": "0.0.1",
-	"license": "LIL",
-	"bin": {
-		"lit-node": "lit-node"
-	},
-	"scripts": {
-		"test": "./lit-node test/test.md"
-	},
-	"devDependencies": {
-		"chalk": "^2.3.0"
-	}
+  "name": "lit-node",
+  "description": "Self-documenting Node scripts through literate programming",
+  "version": "0.0.1",
+  "license": "LIL",
+  "bin": {
+    "lit-node": "lit-node"
+  },
+  "scripts": {
+    "test": "./lit-node test/test.md"
+  },
+  "devDependencies": {
+    "chalk": "^2.3.0"
+  }
 }
