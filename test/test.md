@@ -72,6 +72,19 @@ assert.equal(value, 'delayed');
 success('supports async/await');
 ```
 
+For debugging, stack traces should point to the correct line:
+
+```js
+const err = new Error('something went wrong');
+const line = err.stack.split('\n')[1];
+const match = /test.md:(\d+):(\d+)/.exec(line);
+
+assert.equal(match[1], '78'); // line
+assert.equal(match[2], '13'); // column
+
+success('preserves line/column in stack traces');
+```
+
 ## Did it work?
 
 If everything worked, we'll print a message to say as much:
