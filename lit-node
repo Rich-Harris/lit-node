@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+const fs = require('fs');
+const path = require('path');
+const child_process = require('child_process');
+const compile = require('./compile.js');
+
+const args = process.argv.slice(2);
+
+args.unshift('-r', path.resolve(__dirname, 'register.js'));
+
+const inline = {
+	'-e': true,
+	'-p': true,
+	'--eval': true,
+	'--print': true
+};
+
+for (let i = 0; i < args.length; i += 1) {
+	if (inline[args[i]]) {
+		args[i + 1] = compile(args[i + 1]);
+	}
+}
+
+const proc = child_process.spawn(process.argv[0], args, {
+	stdio: 'inherit'
+});
+
+proc.on('exit', function(code, signal) {
+	process.on('exit', function() {
+		if (signal) {
+			process.kill(process.pid, signal);
+		} else {
+			process.exit(code);
+		}
+	});
+});
