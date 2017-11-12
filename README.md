@@ -27,7 +27,7 @@ You can even use top-level await:
 
 ```js
 const request = require('request-promise');
-console.log(await request('https://google.com'));
+console.log(await request('https://example.com'));
 ```
 ~~~
 
