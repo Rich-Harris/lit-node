@@ -7,9 +7,15 @@ Self-documenting Node scripts through literate programming. Based on [lit](https
 
 Create a file, `test.md`:
 
+~~~
+# this is a markdown file!
+
+It can have *all the usual markdown stuff*, but only the code blocks run:
+
+```js
+console.log('it works!')
 ```
-TODO not quite sure how to show code blocks in a code block...
-```
+~~~
 
 ```bash
 npm i -g lit-node
