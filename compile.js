@@ -1,17 +1,29 @@
+// test whether a fenced code block specifies JavaScript
 function isJavaScript(chunk) {
 	return /^(js|javascript)\s*\n/.test(chunk);
 }
 
-module.exports = function compile(markdown) {
+// extract JavaScript code blocks from a Markdown string
+function compile(markdown) {
+
+	// split along backtick fences
 	const chunks = markdown.split(/^```/gm);
 
-	return '(async () => {' + chunks
+	// filter down to only code blocks
+	const code = chunks
 		.map((chunk, i) => {
-			if (i % 2 && isJavaScript(chunk)) {
+			const even = i % 2;
+			if (even && isJavaScript(chunk)) {
 				return chunk.replace(/^.+/, '');
+			} else {
+				return chunk.replace(/^.+$/gm, '');
 			}
+		});
 
-			return chunk.replace(/^.+$/gm, '');
-		})
-		.join('') + '})();';
+	// output an async function
+	return '(async () => {' + code.join('') + '})();';
+
 };
+
+// export
+module.exports = compile;
