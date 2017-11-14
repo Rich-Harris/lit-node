@@ -12,8 +12,8 @@ function compile(markdown) {
 	// filter down to only code blocks
 	const code = chunks
 		.map((chunk, i) => {
-			const even = i % 2;
-			if (even && isJavaScript(chunk)) {
+			const odd = i % 2;
+			if (odd && isJavaScript(chunk)) {
 				return chunk.replace(/^.+/, '');
 			} else {
 				return chunk.replace(/^.+$/gm, '');
