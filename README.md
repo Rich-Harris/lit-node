@@ -97,6 +97,7 @@ console.log(await request('https://example.com'));
 ## Other Tools
 
 - **IRONCLAD MONEY-BACK GUARANTEE**: If you later decide literate programming in Markdown isn't for you, you can quickly and painlessly convert all your Markdown documents into regular JavaScript files by running them through [lit](https://github.com/vijithassar/lit) to strip out the prose. Try it today! There is no risk!
+- [lit-web](https://github.com/vijithassar/lit-web) is a script that lets a browser execute the code blocks from a single Markdown document as JavaScript
 - To interpret literate code for languages other than Node.js, you can use either lit [with subshells](https://github.com/vijithassar/lit#logging) or [Blaze](https://github.com/0atman/blaze/), which is a drop-in replacement for `usr/bin/env`
 - `lit-node` is just running Node.js internally and for a whole slew of complicated reasons Node.js doesn't yet support ES modules,  so for now `lit-node` likewise only supports [CommonJS](http://www.commonjs.org/) exports. To write literate JavaScript source code using ES module syntax, either bundle with [Rollup](https://rollupjs.org/) and the [rollup-plugin-markdown](https://www.npmjs.com/package/rollup-plugin-markdown) plugin, or else process the Markdown files with [lit](https://github.com/vijithassar/lit) and then do whatever else you want with other ES module tools.
 - [Docco](http://ashkenas.com/docco/) and its many variants render literate source code into beautiful browsable HTML
