@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test-path": "./lit-node test/test.md",
-    "test-module": "node --require . test/test.md",
+    "test-module": "node --require ./register.js test/test.md",
     "test": "npm run test-path && npm run test-module"
   },
   "devDependencies": {
