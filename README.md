@@ -86,7 +86,7 @@ Any script that has previously loaded `lit-node` with `require()` can then `requ
 
 ```javascript
 # load lit-node module
-require('lit-node')
+require('lit-node/register.js')
 
 # scripts can load code from literate Markdown files
 const thing = require('thing.md')
