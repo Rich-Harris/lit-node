@@ -93,8 +93,6 @@ const thing = require('thing.md')
 console.log(typeof thing)
 ```
 
-~~~
-
 ### REPL
 
 Assuming you've installed globally as mentioned above, you can also use the Node alias installed by lit-node to launch an interactive [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) which will support Markdown imports.
