@@ -14,7 +14,7 @@ $ npm install lit-node
 
 # load module from command line to enable
 # execution of literate Markdown with Node
-$ node --require lit-node program.md
+$ node --require lit-node/register program.md
 
 # lit-node alias is just node with direct
 # support for importing modules from
