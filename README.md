@@ -1,6 +1,6 @@
 # lit-node
 
-Self-documenting Node scripts through literate programming. Based on [lit](https://github.com/vijithassar/lit) by [Vijith Assar](https://twitter.com/vijithassar).
+Load Markdown files as Node modules and run the code blocks. Self-documenting Node scripts through literate programming! Based on [lit](https://github.com/vijithassar/lit) by [Vijith Assar](https://twitter.com/vijithassar).
 
 ## Overview
 
@@ -10,17 +10,28 @@ Self-documenting Node scripts through literate programming. Based on [lit](https
 
 ```bash
 # install
-$ npm install --global lit-node
+$ npm install lit-node
 
-# lit-node is just node with direct
+# load module from command line to enable
+# execution of literate Markdown with Node
+$ node --require lit-node/register program.md
+
+# lit-node alias is just node with direct
 # support for importing modules from
 # Markdown code blocks
-$ lit-node
+$ lit-node program.md
 ```
 
 ## Instructions
 
-First, install `lit-node`; a global install is probably most useful:
+First, install `lit-node`.
+
+```bash
+# install
+$ npm install lit-node
+```
+
+You'll probably want a **global** install if you intend to use either the REPL or the alias for Node which automatically loads the lit-node module (more on these in a moment):
 
 ```bash
 # install
@@ -49,7 +60,19 @@ console.log('hello world');
 
 Now you can **execute your Markdown file**!
 
+Using the regular Node interpreter:
+
 ```bash
+# execute literate Markdown files with Node,
+# loading lit-node module from command line
+$ node --require lit-node/register ./test.md
+```
+
+Alternately, the same thing using the Node alias that automatically loads the lit-node module:
+
+```bash
+# execute literate Markdown files with Node alias;
+# lit-node module is automatically loaded
 $ lit-node ./test.md
 ```
 
@@ -59,28 +82,31 @@ You *must* include `js` or `javascript` as a language specifier after opening up
 
 ### require()
 
-From within a script being executed by `lit-node`, you can `require()` other Markdown files, which will be parsed and executed just like any other module. The `.md` file extension is optional.
-
-~~~
-
-You can do this within test.md:
+Any script that has previously loaded `lit-node` with `require()` can then `require()` other Markdown files, which will be parsed and executed just like any other module. The `.md` file extension is optional, but recommended.
 
 ```javascript
-// import module from a Markdown file
-const thing = require('./thing.md');
+# load lit-node module
+require('lit-node/register.js')
 
-// log the type of whatever was exported
-console.log(typeof thing);
+# scripts can load code from literate Markdown files
+const thing = require('thing.md')
+console.log(typeof thing)
 ```
+
 ~~~
 
 ### REPL
 
-Assuming you've installed globally as mentioned above, you can also launch an interactive [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) which will support Markdown imports.
+Assuming you've installed globally as mentioned above, you can also use the Node alias installed by lit-node to launch an interactive [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) which will support Markdown imports.
 
 ```bash
+# launch Node alias REPL with 
+# lit-node module already loaded
 $ lit-node
-> const thing = require('./thing.md'); // import module from a Markdown file
+
+# the REPL can load code from literate Markdown files
+> const thing = require('./thing.md');
+> typeof thing
 ```
 
 ### Top Level Await

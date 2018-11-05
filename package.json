@@ -3,11 +3,14 @@
   "description": "Self-documenting Node scripts through literate programming",
   "version": "0.0.1",
   "license": "LIL",
+  "main": "index.js",
   "bin": {
     "lit-node": "lit-node"
   },
   "scripts": {
-    "test": "./lit-node test/test.md"
+    "test-path": "./lit-node test/test.md",
+    "test-module": "node --require ./register.js test/test.md",
+    "test": "npm run test-path && npm run test-module"
   },
   "devDependencies": {
     "chalk": "^2.3.0"
