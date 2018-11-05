@@ -65,7 +65,7 @@ Using the regular Node interpreter:
 ```bash
 # execute literate Markdown files with Node,
 # loading lit-node module from command line
-$ node --require lit-node ./test.md
+$ node --require lit-node/register ./test.md
 ```
 
 Alternately, the same thing using the Node alias that automatically loads the lit-node module:
