@@ -10,7 +10,8 @@
   "scripts": {
     "test-path": "./lit-node test/test.md",
     "test-module": "node --require ./register.js test/test.md",
-    "test": "npm run test-path && npm run test-module"
+    "test": "npm run test-path && npm run test-module",
+    "prepublishOnly": "npm run test"
   },
   "devDependencies": {
     "chalk": "^2.3.0"
