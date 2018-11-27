@@ -45,6 +45,18 @@ fail('should not run this');
 fail('should not run this');
 ```
 
+For debugging, stack traces should point to the correct line:
+
+```js
+const err = new Error('something went wrong');
+const line = err.stack.split('\n')[1];
+const match = /test.md:(\d+):(\d+)/.exec(line);
+
+assert.equal(match[1], '51'); // line
+assert.equal(match[2], '13'); // column
+
+success('preserves line/column in stack traces');
+```
 
 What about requiring other `.md` files?
 
@@ -64,18 +76,6 @@ assert.equal(problems, 99);
 success('imports a `.md` file without specifying the extension');
 ```
 
-For debugging, stack traces should point to the correct line:
-
-```js
-const err = new Error('something went wrong');
-const line = err.stack.split('\n')[1];
-const match = /test.md:(\d+):(\d+)/.exec(line);
-
-assert.equal(match[1], '70'); // line
-assert.equal(match[2], '13'); // column
-
-success('preserves line/column in stack traces');
-```
 
 ## Did it work?
 
