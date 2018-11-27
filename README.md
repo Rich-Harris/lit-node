@@ -107,16 +107,6 @@ $ lit-node
 > typeof thing
 ```
 
-### Top Level Await
-
-Top-level use of `await` is [generally a bad idea](https://gist.github.com/Rich-Harris/0b6f317657f5167663b493c722647221), but allowed in this case because it can be useful for short scripts.
-
-~~~
-```javascript
-const request = require('request-promise');
-console.log(await request('https://example.com'));
-```
-~~~
 
 ## Other Tools
 

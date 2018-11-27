@@ -21,7 +21,7 @@ function compile(markdown) {
 		});
 
 	// output an async function
-	return '(async () => {' + code.join('') + '})();';
+	return code.join('');
 
 };
 

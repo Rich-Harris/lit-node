@@ -1,7 +1,7 @@
 {
   "name": "lit-node",
   "description": "Self-documenting Node scripts through literate programming",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "LIL",
   "main": "index.js",
   "bin": {
