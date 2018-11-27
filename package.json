@@ -1,7 +1,7 @@
 {
   "name": "lit-node",
   "description": "Self-documenting Node scripts through literate programming",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "LIL",
   "main": "index.js",
   "bin": {
@@ -10,7 +10,8 @@
   "scripts": {
     "test-path": "./lit-node test/test.md",
     "test-module": "node --require ./register.js test/test.md",
-    "test": "npm run test-path && npm run test-module"
+    "test": "npm run test-path && npm run test-module",
+    "prepublishOnly": "npm run test"
   },
   "devDependencies": {
     "chalk": "^2.3.0"
