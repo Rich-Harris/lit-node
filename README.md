@@ -85,10 +85,10 @@ You *must* include `js` or `javascript` as a language specifier after opening up
 Any script that has previously loaded `lit-node` with `require()` can then `require()` other Markdown files, which will be parsed and executed just like any other module. The `.md` file extension is optional, but recommended.
 
 ```javascript
-# load lit-node module
+// load lit-node module
 require('lit-node/register.js')
 
-# scripts can load code from literate Markdown files
+// scripts can load code from literate Markdown files
 const thing = require('thing.md')
 console.log(typeof thing)
 ```
