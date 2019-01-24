@@ -12,9 +12,6 @@ const factorial = (n: number) => {
 ```
 
 ## 6!
-function factorial(number:number) {
-
-}
 ```typescript
 module.exports = factorial(6);
 ```
