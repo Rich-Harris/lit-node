@@ -76,6 +76,13 @@ assert.equal(problems, 99);
 success('imports a `.md` file without specifying the extension');
 ```
 
+Is TypeScript supported?
+```typescript
+const factorialOf6 = require('./typescript-factorial');
+assert.equal(factorialOf6, 720);
+
+success('execute the factorial of 6 using a typescript function');
+```
 
 ## Did it work?
 

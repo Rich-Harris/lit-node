@@ -14,6 +14,7 @@
     "prepublishOnly": "npm run test"
   },
   "devDependencies": {
-    "chalk": "^2.3.0"
+    "chalk": "^2.3.0",
+    "typescript": "^3.2.4"
   }
 }
